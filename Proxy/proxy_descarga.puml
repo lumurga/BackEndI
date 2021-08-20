@@ -1,0 +1,27 @@
+@startuml
+class proxy_mesas.proxy.ProxyDescarga {
+- ServicioDescarga servicio
++ void decargar(Usuario)
+}
+class proxy_mesas.Main {
++ {static} void main(String[])
+}
+class proxy_mesas.inter.impl.ServicioDescarga {
++ void decargar(Usuario)
+}
+class proxy_mesas.model.Usuario {
+- int identificador
+- String tipo
++ int getIdentificador()
++ void setIdentificador(int)
++ String getTipo()
++ void setTipo(String)
+}
+interface proxy_mesas.inter.IDescarga {
++ void decargar(Usuario)
+}
+
+
+proxy_mesas.inter.IDescarga <|.. proxy_mesas.proxy.ProxyDescarga
+proxy_mesas.inter.IDescarga <|.. proxy_mesas.inter.impl.ServicioDescarga
+@enduml
